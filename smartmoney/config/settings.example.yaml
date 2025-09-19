@@ -1,0 +1,35 @@
+universe:
+  exchanges: [NASDAQ, NYSE, TSX, TSXV]
+  min_mkt_cap_usd: 300000000
+  max_mkt_cap_usd: 10000000000
+  min_adtv_usd: 1500000
+data:
+  cache_dir: "./data"
+  price_provider: "yfinance"
+  sec:
+    base_url: "https://data.sec.gov"
+    user_agent: "YourName your@email.com"
+canada:
+  enable_sedi: true
+llm:
+  provider: "openai"
+  model: "gpt-4o-mini"
+  max_tokens: 1200
+  temperature: 0.0
+  enabled: true
+scoring:
+  weights:
+    insider: 0.25
+    whales: 0.25
+    catalysts: 0.2
+    quality: 0.15
+    momentum: 0.1
+    risk_penalty: 0.15
+backtest:
+  rebalance_days: 30
+  top_k: 15
+  cost_bps: 10
+  slippage_bps: 10
+  lookahead_months: [3, 6, 12]
+report:
+  top_n: 30
